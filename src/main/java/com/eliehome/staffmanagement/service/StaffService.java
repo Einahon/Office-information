@@ -17,4 +17,6 @@ public interface StaffService {
    public Staff updateStaff(Staff staff, Long staffId);
 
    public Staff fetchStaffByName(String staffName);
+
+   public Staff fetchStaffByStaffDepartment(String staffDepartment);
 }

@@ -55,4 +55,9 @@ public class StaffServiceImpl implements StaffService {
         return staffRepository.findByStaffNameIgnoreCase(staffName);
     }
 
+    @Override
+    public Staff fetchStaffByStaffDepartment(String staffDepartment) {
+        return staffRepository.findByStaffDepartmentIgnoreCase(staffDepartment);
+    }
+
 }

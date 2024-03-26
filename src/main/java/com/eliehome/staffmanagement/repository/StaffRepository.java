@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface StaffRepository extends JpaRepository<Staff, Long> {
     public Staff findByStaffName(String staffName);
     public Staff findByStaffNameIgnoreCase(String staffName);
+    public Staff findByStaffDepartment(String staffDepartment);
+    public Staff findByStaffDepartmentIgnoreCase(String staffDepartment);
 
 }
