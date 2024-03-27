@@ -1,12 +1,14 @@
 package com.eliehome.staffmanagement.service;
 
 import com.eliehome.staffmanagement.entity.Staff;
+import com.eliehome.staffmanagement.error.StaffNotFoundException;
 import com.eliehome.staffmanagement.repository.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class StaffServiceImpl implements StaffService {
@@ -23,8 +25,12 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public Staff fetchStaffById(Long staffId) {
-        return staffRepository.findById(staffId).get();
+    public Staff fetchStaffById(Long staffId) throws StaffNotFoundException {
+        Optional<Staff> staff = staffRepository.findById(staffId);
+        if(!staff.isPresent()) {
+            throw new StaffNotFoundException("Staff not Available");
+        }
+        return staff.get();
     }
 
     @Override

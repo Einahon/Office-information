@@ -1,6 +1,7 @@
 package com.eliehome.staffmanagement.controller;
 
 import com.eliehome.staffmanagement.entity.Staff;
+import com.eliehome.staffmanagement.error.StaffNotFoundException;
 import com.eliehome.staffmanagement.service.StaffService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class StaffController {
     }
     @GetMapping("/staffs/{id}")
 
-    public Staff fetchStaffById(@PathVariable("id") Long staffId){
+    public Staff fetchStaffById(@PathVariable("id") Long staffId) throws StaffNotFoundException {
         LOGGER.info("Inside fetchStaffById of staffController");
         return staffService.fetchStaffById(staffId);
     }
