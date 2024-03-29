@@ -1,60 +1,18 @@
 server:
   port: 8081
----
+
 Spring:
-  datasource:
-    password: password
-    url: jdbc:mysql://localhost:3306/dcbapp/DEV
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-spring:
-  profiles:
-    active: true
   datasource:
-
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-welcome:
-  message: Welcome to Staff Management !!!
-
----
-
-Spring:
-  datasource:
+    url: jdbc:mysql://localhost:3306/dcbapp
     password: password
-    url: jdbc:mysql://localhost:3306/dcbapp/PROD
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
 spring:
-  profiles:
-    active: true
   datasource:
-
-    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-welcome:
-  message: Welcome to Staff Management !!!
-
----
-
-Spring:
-  datasource:
-    password: password
-    url: jdbc:mysql://localhost:3306/dcbapp/QA
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-spring:
-  profiles:
-    active: true
-  datasource:
-
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
+
 welcome:
   message: Welcome to Staff Management !!!
