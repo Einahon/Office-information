@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eliehome</groupId>
-	<artifactId>Staff-management</artifactId>
+	<artifactId>Office-information</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>Staff-management</name>
 	<description>Demo project for Spring Boot</description>
