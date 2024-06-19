@@ -9,21 +9,26 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Staff {
+public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long staffId;
-    @NotBlank(message = "Please add Staff Name")
-    private String staffName;
-
-    private String staffDepartment;
-    private String staffPhoneNumber;
+    private Long office_id;
+    @Length(max=50, min = 0)
+    private String address;
+    @Length(max=50, min = 0)
+    private String city;
+    @Length(max=50, min = 0)
+    private String state;
+    @NotBlank(message = "Please add Office Manager")
+    @Length(max=50, min = 0)
+    private String manager;
 
 
 }
