@@ -7,7 +7,7 @@ Spring:
       ddl-auto: update
     show-sql: true
   datasource:
-    url: jdbc:mysql://localhost:3306/dcbapp
+    url: jdbc:mysql://localhost:3306/HR-Department
     password: password
 spring:
   datasource:
