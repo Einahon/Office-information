@@ -1,4 +1,4 @@
-package com.eliehome.staffmanagement.entity;
+package com.eliehome.officeInformation.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
