@@ -1,4 +1,4 @@
-package com.eliehome.staffmanagement.entity;
+package com.eliehome.officeInformation.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

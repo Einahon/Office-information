@@ -1,6 +1,6 @@
-package com.eliehome.staffmanagement.error;
+package com.eliehome.officeInformation.error;
 
-import com.eliehome.staffmanagement.entity.ErrorMessage;
+import com.eliehome.officeInformation.entity.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,9 +11,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 @ResponseStatus
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler{
-@ExceptionHandler(StaffNotFoundException.class)
-    public ResponseEntity<ErrorMessage> staffNotFoundException(StaffNotFoundException exception,
-                                                              WebRequest request){
+@ExceptionHandler(OfficeNotFoundException.class)
+    public ResponseEntity<ErrorMessage> staffNotFoundException(OfficeNotFoundException exception,
+                                                               WebRequest request){
     ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,
             exception.getMessage());
 
