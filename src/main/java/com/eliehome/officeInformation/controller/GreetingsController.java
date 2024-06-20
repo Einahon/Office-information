@@ -1,4 +1,4 @@
-package com.eliehome.staffmanagement.controller;
+package com.eliehome.officeInformation.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;

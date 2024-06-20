@@ -15,4 +15,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 welcome:
-  message: Welcome to Staff Management !!!
+  message: Welcome to Office Information Application !!!
