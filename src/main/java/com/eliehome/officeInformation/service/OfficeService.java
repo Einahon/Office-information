@@ -18,5 +18,5 @@ public interface OfficeService {
    public Office updateOffice(Office office, Long office_id) throws OfficeNotFoundException;
 
 
-
+   public Office fetchOfficeByManager(String manager);
 }
