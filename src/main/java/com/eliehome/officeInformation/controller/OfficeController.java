@@ -48,5 +48,9 @@ public class OfficeController {
         return officeService.updateOffice(office, office_id);
 
     }
+    @GetMapping("/offices/manager/{manager}")
+    public Office fetchOfficeByManager(@PathVariable("manager") String manager){
+        return officeService.fetchOfficeByManager(manager);
+    }
 
 }
