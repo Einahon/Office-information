@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ResponseStatus
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler{
 @ExceptionHandler(OfficeNotFoundException.class)
-    public ResponseEntity<ErrorMessage> staffNotFoundException(OfficeNotFoundException exception,
+    public ResponseEntity<ErrorMessage> officeNotFoundException(OfficeNotFoundException exception,
                                                                WebRequest request){
     ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,
             exception.getMessage());
