@@ -13,10 +13,10 @@ public interface OfficeService {
 
     public Office fetchOfficeById(Long office_id) throws OfficeNotFoundException;
 
-   public void deleteOfficeById(Long office_id);
+   public void deleteOfficeById(Long office_id) throws OfficeNotFoundException;
 
-   public Office updateOffice(Office office, Long office_id);
+   public Office updateOffice(Office office, Long office_id) throws OfficeNotFoundException;
 
-   public Office fetchOfficeByManager(String manager);
+
 
 }
