@@ -18,30 +18,43 @@ public class OfficeServiceImpl implements OfficeService {
 
     @Override
     public Office saveOffice(Office office) {
-        return null;
+        return officeRepository.save(office);
     }
 
     @Override
     public List<Office> fetchOfficeList() {
-        return null;
+
+        return officeRepository.findAll();
     }
 
     @Override
     public Office fetchOfficeById(Long office_id) throws OfficeNotFoundException {
-        return null;
+        Optional<Office> office = officeRepository.findById(office_id);
+        if(!office.isPresent()){
+            throw new OfficeNotFoundException("Office not available by ID "+ office_id);
+        }
+        return officeRepository.findById(office_id).get();
     }
 
     @Override
-    public void deleteOfficeById(Long office_id) {
+    public void deleteOfficeById(Long office_id) throws OfficeNotFoundException {
+
+        if(!officeRepository.existsById(office_id)){
+            throw new OfficeNotFoundException("Office does not exist by id "+ office_id);
+        }
+        officeRepository.deleteById(office_id);
+
 
     }
 
     @Override
-    public Office updateOffice(Office office, Long office_id) {
-        Office office1 = officeRepository.findById(office_id).get();
-        if(Objects.nonNull(office1.getCity()) &&
-        !"".equalsIgnoreCase(office1.getCity())){
-            office1.setCity(office1.getCity());
+    public Office updateOffice(Office office, Long office_id) throws OfficeNotFoundException {
+        Office office1 = officeRepository.findById(office_id).orElseThrow(() ->new OfficeNotFoundException("Office not Available"));
+
+
+        if(Objects.nonNull(office.getCity()) &&
+        !"".equalsIgnoreCase(office.getCity())){
+            office1.setCity(office.getCity());
         }
         if(Objects.nonNull(office.getAddress()) &&
                 !"".equalsIgnoreCase(office.getAddress())){
@@ -58,8 +71,4 @@ public class OfficeServiceImpl implements OfficeService {
         return officeRepository.save(office1);
     }
 
-    @Override
-    public Office fetchOfficeByManager(String manager) {
-        return officeRepository.findByManagerIgnoreCase(manager);
-    }
 }
