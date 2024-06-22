@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +20,8 @@ public class OfficeController {
 
     private final Logger LOGGER = LoggerFactory.getLogger(OfficeController.class);
 
-    @PostMapping("/staffs")
-    public Office saveOffice(@Valid @RequestBody Office office){
+    @PostMapping("/offices")
+    public Office saveOffice( @RequestBody Office office){
         LOGGER.info("Inside saveOffice of officeController");
         return officeService.saveOffice(office);
 
@@ -38,20 +39,14 @@ public class OfficeController {
     }
     @DeleteMapping("/offices/{id}")
 
-    public String deleteOfficeById(@PathVariable("id") Long office_id){
+    public String deleteOfficeById(@PathVariable("id") Long office_id) throws OfficeNotFoundException {
          officeService.deleteOfficeById(office_id);
         return "Office deleted sucessfully!!!";
     }
     @PutMapping("/offices/{id}")
-    public Office updateOffice(@RequestBody Office office, @PathVariable("id") Long office_id){
+    public Office updateOffice(@RequestBody Office office, @PathVariable("id") Long office_id) throws OfficeNotFoundException {
         return officeService.updateOffice(office, office_id);
 
-    }
-    @GetMapping("/staffs/manager/{name}")
-
-    public Office fetchOfficeByManager(@PathVariable("name") String manager){
-        LOGGER.info("Inside fetchOfficeByManager of officeController");
-        return officeService.fetchOfficeByManager(manager);
     }
 
 }
