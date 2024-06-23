@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OfficeRepository extends JpaRepository<Office, Long> {
-
+    public Office findByManager(String manager);
+    public Office findByManagerIgnoreCase(String manager);
 
 }
