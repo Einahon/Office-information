@@ -71,4 +71,9 @@ public class OfficeServiceImpl implements OfficeService {
         return officeRepository.save(office1);
     }
 
+    @Override
+    public Office fetchOfficeByManager(String manager) {
+        return officeRepository.findByManagerIgnoreCase(manager);
+    }
+
 }
