@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,16 +21,16 @@ public class Office {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long office_id;
 
-    @Length(max=50, min = 0)
+    @Length(max=50, min = 5, message = "Must be at least of 5 - 50 characters " )
     private String address;
 
-    @Length(max=50, min = 0)
+    @Length(max=50, min = 2, message = "Must be at least of 2 - 50 characters ")
     private String city;
 
-    @Length(max=50, min = 0)
+    @Length(max=50, min = 2, message = "Must be at least of 2 - 50 characters ")
     private String state;
-
-
+    @NotBlank(message = "Add manager Name")
+    @Length(max = 50, min = 2, message = "Must be at least of 2 - 50 characters ")
     private String manager;
 
 
