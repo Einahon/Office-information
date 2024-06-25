@@ -21,16 +21,16 @@ public class Office {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long office_id;
 
-    @Length(max=50, min = 5, message = "Must be at least of 5 - 50 characters " )
+    @Length(max=50, min = 5, message = "Address must be at least of 5 - 50 characters " )
     private String address;
 
-    @Length(max=50, min = 2, message = "Must be at least of 2 - 50 characters ")
+    @Length(max=50, min = 2, message = "City must be at least of 2 - 50 characters ")
     private String city;
 
-    @Length(max=50, min = 2, message = "Must be at least of 2 - 50 characters ")
+    @Length(max=50, min = 2, message = "State must be at least of 2 - 50 characters ")
     private String state;
     @NotBlank(message = "Add manager Name")
-    @Length(max = 50, min = 2, message = "Must be at least of 2 - 50 characters ")
+    @Length(max = 50, min = 2, message = "Manager Name must be at least of 2 - 50 characters ")
     private String manager;
 
 
