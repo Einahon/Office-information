@@ -7,7 +7,6 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class OfficeController {
     private final Logger LOGGER = LoggerFactory.getLogger(OfficeController.class);
 
     @PostMapping("/offices")
-    public Office saveOffice( @RequestBody Office office){
+    public Office saveOffice(@Valid @RequestBody Office office){
         LOGGER.info("Inside saveOffice of officeController");
         return officeService.saveOffice(office);
 
@@ -49,7 +48,7 @@ public class OfficeController {
 
     }
     @GetMapping("/offices/manager/{name}")
-    public Office fetchOfficeByManager(@PathVariable("name") String manager){
+    public Office fetchOfficeByManager(@PathVariable("name") String manager) throws OfficeNotFoundException {
         return officeService.fetchOfficeByManager(manager);
     }
 
