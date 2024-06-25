@@ -72,8 +72,13 @@ public class OfficeServiceImpl implements OfficeService {
     }
 
     @Override
-    public Office fetchOfficeByManager(String manager) {
-        return officeRepository.findByManagerIgnoreCase(manager);
+    public Office fetchOfficeByManager(String manager) throws OfficeNotFoundException {
+
+        Office office = officeRepository.findByManagerIgnoreCase(manager);
+        if(office == null){
+            throw new OfficeNotFoundException("Manager by Name "+ manager+ " does not exist");
+        }
+        return office;
     }
 
 }
