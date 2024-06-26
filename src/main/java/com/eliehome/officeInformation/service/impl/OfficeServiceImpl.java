@@ -33,7 +33,7 @@ public class OfficeServiceImpl implements OfficeService {
         if(!office.isPresent()){
             throw new OfficeNotFoundException("Office not available by ID "+ office_id);
         }
-        return officeRepository.findById(office_id).get();
+        return office.get();
     }
 
     @Override
