@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 public class RestResponseEntityExceptionHandler  {
     @ExceptionHandler(OfficeNotFoundException.class)
-    public ResponseEntity<ErrorMessage> employeeNotFoundException(OfficeNotFoundException exception,
+    public ResponseEntity<ErrorMessage> officeNotFoundException(OfficeNotFoundException exception,
                                                                   WebRequest request){
         ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,
                 exception.getMessage());
@@ -22,7 +22,7 @@ public class RestResponseEntityExceptionHandler  {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorMessage> employeeFieldValidationError(MethodArgumentNotValidException exception) {
+    public ResponseEntity<ErrorMessage> officeFieldValidationError(MethodArgumentNotValidException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorMessage(HttpStatus.BAD_REQUEST,
                 exception.getBindingResult().getFieldError().getDefaultMessage()));
     }
