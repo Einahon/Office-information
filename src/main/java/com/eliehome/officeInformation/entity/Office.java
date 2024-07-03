@@ -17,6 +17,7 @@ import org.hibernate.validator.constraints.Length;
 @AllArgsConstructor
 @Builder
 public class Office {
+//    Declaring primary key and auto increment
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long office_id;
